@@ -25,4 +25,13 @@ See [haskell.zcourts.com](http://haskell.zcourts.com).
 Why Haskell
 ===========
 
-Because I'm tired of imperitive languages and the burden they bring. I know Haskell too has it's kinks but they're easier to digest.
+* Because I'm tired of imperitive languages and the burden they bring. I know Haskell too has it's kinks but they're easier to digest.
+
+* The concepts and ideas you find in Haskell opens your mind to a raft of different things. 
+* It performs well.
+* It integrates amazingly with C and C++ (with some C wrapper or small modifications)
+* It's interesting and sufficiently different to other languages to the point where it doesn't feel like a boring routine working with it.
+* It chips away so much boiler plate code.
+* It allows all sorts of expressiveness.
+* Very modular, re-usable
+* You can express otherwise impossible things(i.e. impossible in say Java)
