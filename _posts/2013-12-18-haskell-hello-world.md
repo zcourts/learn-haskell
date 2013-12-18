@@ -146,3 +146,26 @@ main = print "Hello World"
 
 The type will be inferred. So Haskell is a static/strongly typed language. Omitting the type signature doesn't mean you can mix types i.e. you can't add a number and a string.
 
+### Interpretting or Compiling a Haskell module
+
+Haskell source code should typically be compiled. In some cases though it's convenient to be able to quickly run a program/moudle and test the functions you've written.
+
+To interactively run a module without compiling start up ghci from the command line with:
+<pre>
+
+</pre>
+<pre>
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ghc --make Main.hs
+[1 of 1] Compiling Main             ( Main.hs, Main.o )
+Linking Main.exe ...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ls
+Main.exe*  Main.hi  Main.hs  Main.o
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ./Main.exe
+"Hello World"
+</pre>
+
