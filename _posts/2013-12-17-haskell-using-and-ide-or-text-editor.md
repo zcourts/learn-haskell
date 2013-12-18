@@ -3,7 +3,7 @@ layout: post
 title: "Haskell: Using and IDE or Text editor"
 description: ""
 category: Installation
-tags: [setup,ide,install]
+tags: [setup,ide,install,homepage]
 ---
 {% include JB/setup %}
 

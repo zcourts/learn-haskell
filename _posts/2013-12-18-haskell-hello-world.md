@@ -3,7 +3,7 @@ layout: post
 title: "Haskell: Hello world"
 description: "A simple Hello world example in Haskell"
 categories: [Haskell,beginner]
-tags: [haskell,beginner,hello-world]
+tags: [haskell,beginner,hello-world,homepage]
 ---
 {% include JB/setup %}
 
