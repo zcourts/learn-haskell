@@ -25,7 +25,7 @@ cabal init
 
 You will be propted with a series of questions about the project, just answer each or accept the defaults where provided. The interaction may look similar to:
 
-<pre>
+{% highlight bash %}
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
 $ cabal init
 Package name? [default: learn-haskell]
@@ -84,8 +84,7 @@ Generating learn-haskell.cabal...
 You may want to edit the .cabal file and add a Description field.
 
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
-</pre>
-
+{% endhighlight %}
 
 Open learn-haskell.cabal and under executable, uncomment "main-is" so that is says
 
@@ -94,6 +93,7 @@ Open learn-haskell.cabal and under executable, uncomment "main-is" so that is sa
 {% endhighlight %}
 
 Below main-is add
+
 {% highlight yaml %}
   hs-source-dirs:      src
 {% endhighlight %}
@@ -153,7 +153,8 @@ Haskell source code should typically be compiled. In some cases though it's conv
 #### Interpreting with GHCi
 
 To interactively run a module without compiling start up ghci from the command line with:
-<pre>
+
+{% highlight bash %}
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
 $ ghci
 Loading package ghc-prim ... linking ... done.
@@ -165,13 +166,14 @@ Ok, modules loaded: Main.
 *Main> main
 "Hello World"
 *Main>
-</pre>
+
+{% endhighlight %}
 
 #### Compiling manually with GHC
 
 In other cases it's apprpriate to compile the source. You do this with ghc (notice no i). ghc make SourceName.hs
 
-<pre>
+{% highlight bash %}
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
 $ ghc --make Main.hs
 [1 of 1] Compiling Main             ( Main.hs, Main.o )
@@ -184,13 +186,13 @@ Main.exe*  Main.hi  Main.hs  Main.o
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
 $ ./Main.exe
 "Hello World"
-</pre>
+{% endhighlight %}
 
 #### Compiling multiple modules with Cabal
 
 While the above methods work OK. Haskell projects like in any other language starts to grow eventually and compiling one or more files manually becomes tedious. Instead of doing that from now on all compilation will be done with cabal (afterall, that's why we have cabal)
 
-<pre>
+{% highlight bash %}
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
 $ cabal configure
 Resolving dependencies...
@@ -205,6 +207,6 @@ Linking dist\build\learn-haskell\learn-haskell.exe ...
 
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
 $
-</pre>
+{% endhighlight %}
 
 This created the file dist\build\learn-haskell\learn-haskell.exe which we can run to produce the "Hello world" from earlier.
