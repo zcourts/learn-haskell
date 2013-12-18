@@ -42,11 +42,3 @@ In other words, you compile it to machine code. Every variable in Haskell has a 
 It is pure, this means a couple of things. Applying a function multiple times with the same parameters will produce the same results. There are no side effects...usually anyway (there's one exception), in reality what it means is that if a function causes any side effects it is explicit.
 
 Perhaps one of the most awesome things about Haskell is it's type inference. In other typed languages you have to say what a type of a variable is...in Haskell the compiler figures things out for you so you don't have to type it.
-
-
-## Most recent posts
-
-
-
-{% assign posts_collate = site.tags.homepage %}
-{% include JB/posts_collate %}
