@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Haskell: Installation and Setup"
-description: ""
-category: ""
-tags: []
+description: "How to setup and install Haskell Platform"
+category: "Installation"
+tags: [setup,install]
 ---
 {% include JB/setup %}
 
