@@ -150,10 +150,27 @@ The type will be inferred. So Haskell is a static/strongly typed language. Omitt
 
 Haskell source code should typically be compiled. In some cases though it's convenient to be able to quickly run a program/moudle and test the functions you've written.
 
+#### Interpreting with GHCi
+
 To interactively run a module without compiling start up ghci from the command line with:
 <pre>
-
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ ghci
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> :load src/Main.hs
+[1 of 1] Compiling Main             ( src\Main.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> main
+"Hello World"
+*Main>
 </pre>
+
+#### Compiling manually with GHC
+
+In other cases it's apprpriate to compile the source. You do this with ghc (notice no i). ghc make SourceName.hs
+
 <pre>
 Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
 $ ghc --make Main.hs
@@ -169,3 +186,25 @@ $ ./Main.exe
 "Hello World"
 </pre>
 
+#### Compiling multiple modules with Cabal
+
+While the above methods work OK. Haskell projects like in any other language starts to grow eventually and compiling one or more files manually becomes tedious. Instead of doing that from now on all compilation will be done with cabal (afterall, that's why we have cabal)
+
+<pre>
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ cabal configure
+Resolving dependencies...
+Configuring learn-haskell-0.0.1...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ cabal build
+Building learn-haskell-0.0.1...
+Preprocessing executable 'learn-haskell' for learn-haskell-0.0.1...
+[1 of 1] Compiling Main             ( src\Main.hs, dist\build\learn-haskell\learn-haskell-tmp\Main.o )
+Linking dist\build\learn-haskell\learn-haskell.exe ...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$
+</pre>
+
+This created the file dist\build\learn-haskell\learn-haskell.exe which we can run to produce the "Hello world" from earlier.
