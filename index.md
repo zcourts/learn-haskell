@@ -2,7 +2,7 @@
 layout: page
 title: Learning Haskell
 tagline: Progressive tutorials aimed at teaching Haskell
-category: [Haskell  beginner]
+category: [Haskell,  beginner]
 tags: [beginner, hello-world]
 ---
 {% include JB/setup %}
@@ -20,7 +20,7 @@ Unfortunately I didn't do this while I was stuck, the repo came after I could wr
 
 Since I continue to learn new things about Haskell, I'll try to continue adding stuff.
 
-See [code.zcourts.com/learn-haskell](code.zcourts.com/learn-haskell).
+See [code.zcourts.com/learn-haskell](http://code.zcourts.com/learn-haskell).
 
 Why Haskell
 ===========
