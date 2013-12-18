@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Haskell tutorial series</title>
+        <description>Haskell tutorial series - Courtney Robinson</description>
+        <link>http://haskell.zcourts.com</link>
+        <link>http://haskell.zcourts.com</link>
+        <lastBuildDate>2013-12-18T13:47:54+00:00</lastBuildDate>
+        <pubDate>2013-12-18T13:47:54+00:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Haskell: Hello world</title>
+                <description>&lt;p&gt;To begin with we will setup a project that we&amp;#8217;ll continue to use in all the examples. In Haskell it is typical for a project to use Cabal to describe itself, dependencies and other useful properties. &amp;#8220;Cabal describes what a Haskell package is, how these packages interact with the language, and what Haskell implementations must to do to support packages&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;It can be thought of as being similar to ant, make, maven, groovy or Ruby&amp;#8217;s gem package tools. Don&amp;#8217;t assume it works the same way but in the bigger picture of things they are trying to acheive similar goals to some extent.&lt;/p&gt;
+
+&lt;p&gt;This assumes you&amp;#8217;ve followed the &lt;a href=&#39;/installation/2013/12/17/haskell-using-and-ide-or-text-editor&#39;&gt;&amp;#8220;Using an IDE or Text editor post&amp;#8221;&lt;/a&gt; and have one of them ready to go. I&amp;#8217;ll be using Eclipse FP, if you use Sublime then just skip the &amp;#8220;Create an Eclipse Haskell Project&amp;#8221; section.&lt;/p&gt;
+
+&lt;h3 id=&#39;create_a_new_cabal_project&#39;&gt;Create a new cabal project&lt;/h3&gt;
+
+&lt;p&gt;From the command line start a new project using:&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;mkdir learn-haskell
+&lt;span class=&#39;nb&#39;&gt;cd &lt;/span&gt;learn-haskell
+cabal init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You will be propted with a series of questions about the project, just answer each or accept the defaults where provided. The interaction may look similar to:&lt;/p&gt;
+&lt;pre&gt;
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ cabal init
+Package name? [default: learn-haskell]
+Package version? [default: 0.1.0.0] 0.0.1
+Please choose a license:
+ * 1) (none)
+   2) GPL-2
+   3) GPL-3
+   4) LGPL-2.1
+   5) LGPL-3
+   6) BSD3
+   7) MIT
+   8) Apache-2.0
+   9) PublicDomain
+  10) AllRightsReserved
+  11) Other (specify)
+Your choice? [default: (none)] 6
+Author name? Courtney Robinson
+Maintainer email? learn-haskell@crlog.info
+Project homepage URL? http://haskell.zcourts.com
+Project synopsis? A series of notes and tutorials to help learn Haskell
+Project category:
+ * 1) (none)
+   2) Codec
+   3) Concurrency
+   4) Control
+   5) Data
+   6) Database
+   7) Development
+   8) Distribution
+   9) Game
+  10) Graphics
+  11) Language
+  12) Math
+  13) Network
+  14) Sound
+  15) System
+  16) Testing
+  17) Text
+  18) Web
+  19) Other (specify)
+Your choice? [default: (none)] 19
+Please specify? Language
+What does the package build:
+   1) Library
+   2) Executable
+Your choice? 2
+Include documentation on what each field means (y/n)? [default: n] y
+
+Guessing dependencies...
+
+Generating LICENSE...
+Generating Setup.hs...
+Generating learn-haskell.cabal...
+
+You may want to edit the .cabal file and add a Description field.
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+&lt;/pre&gt;
+&lt;p&gt;Open learn-haskell.cabal and under executable, uncomment &amp;#8220;main-is&amp;#8221; so that is says&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;yaml&#39;&gt;  &lt;span class=&#39;l-Scalar-Plain&#39;&gt;main-is&lt;/span&gt;&lt;span class=&#39;p-Indicator&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;l-Scalar-Plain&#39;&gt;Main.hs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Below main-is add&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;yaml&#39;&gt;  &lt;span class=&#39;l-Scalar-Plain&#39;&gt;hs-source-dirs&lt;/span&gt;&lt;span class=&#39;p-Indicator&#39;&gt;:&lt;/span&gt;      &lt;span class=&#39;l-Scalar-Plain&#39;&gt;src&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#39;create_an_eclipse_haskell_project&#39;&gt;Create an Eclipse Haskell Project&lt;/h3&gt;
+
+&lt;p&gt;In eclipse go to File -&amp;gt; New -&amp;gt; Haskell Project Select the button that says &amp;#8220;Create project in external location&amp;#8221; and then browse to the folder you just ran cabal init in. Make sure that &amp;#8220;Executable&amp;#8221; is selected in the &amp;#8220;Components&amp;#8221; section, then click finish.&lt;/p&gt;
+
+&lt;p&gt;What you&amp;#8217;ve just done is created a Haskell project which uses Eclipse FP. The cabal init step was done so that the cabal project can be setup which means it would also be recognised and used in Sublime Haskell.&lt;/p&gt;
+
+&lt;h3 id=&#39;haskell_hello_world&#39;&gt;Haskell, Hello world&lt;/h3&gt;
+
+&lt;p&gt;Create a file called Main.hs&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;haskell&#39;&gt;&lt;span class=&#39;c1&#39;&gt;--this defines the module called Main, p.s. this is a comment&lt;/span&gt;
+&lt;span class=&#39;kr&#39;&gt;module&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;Main&lt;/span&gt; &lt;span class=&#39;kr&#39;&gt;where&lt;/span&gt;
+
+&lt;span class=&#39;nf&#39;&gt;main&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;::&lt;/span&gt; &lt;span class=&#39;kt&#39;&gt;IO&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;()&lt;/span&gt;
+&lt;span class=&#39;nf&#39;&gt;main&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#39;what_just_happened&#39;&gt;What just happened?&lt;/h3&gt;
+
+&lt;p&gt;Haskell uses modules which are similar to namespaces or packages in other languages. A module is used to contain definitions. These definitions can be &amp;#8220;exported&amp;#8221; or left &amp;#8220;private&amp;#8221; to the module. More on that later.&lt;/p&gt;
+
+&lt;p&gt;In the example above we created a module called &amp;#8220;Main&amp;#8221;. The definitions for the module then followed the &amp;#8220;where&amp;#8221; keyword.&lt;/p&gt;
+
+&lt;p&gt;Like other languages, most Haskell executable programs have a &amp;#8220;main&amp;#8221; method and we defined this as &amp;#8220;main :: IO ()&amp;#8221;. &amp;#8220;main&amp;#8221; being the name of the function we are defining and everything after the double colon (::) defines the signature of the main function. In this case&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;haskell&#39;&gt;&lt;span class=&#39;nf&#39;&gt;main&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;::&lt;/span&gt; &lt;span class=&#39;kt&#39;&gt;IO&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We&amp;#8217;ll come back to signatures when we discuss types and type safety in Haskell. For the record, everything in Haskell has a type. All types are known at compile time but you can often omit the type information and leave the compiler to &amp;#8220;infer&amp;#8221; it for you.&lt;/p&gt;
+
+&lt;p&gt;The same Hello world program could be written as&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;haskell&#39;&gt;&lt;span class=&#39;kr&#39;&gt;module&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;Main&lt;/span&gt; &lt;span class=&#39;kr&#39;&gt;where&lt;/span&gt;
+
+&lt;span class=&#39;nf&#39;&gt;main&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The type will be inferred. So Haskell is a static/strongly typed language. Omitting the type signature doesn&amp;#8217;t mean you can mix types i.e. you can&amp;#8217;t add a number and a string.&lt;/p&gt;
+
+&lt;h3 id=&#39;interpretting_or_compiling_a_haskell_module&#39;&gt;Interpretting or Compiling a Haskell module&lt;/h3&gt;
+
+&lt;p&gt;Haskell source code should typically be compiled. In some cases though it&amp;#8217;s convenient to be able to quickly run a program/moudle and test the functions you&amp;#8217;ve written.&lt;/p&gt;
+
+&lt;h4 id=&#39;interpreting_with_ghci&#39;&gt;Interpreting with GHCi&lt;/h4&gt;
+
+&lt;p&gt;To interactively run a module without compiling start up ghci from the command line with: &lt;pre&gt;
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ ghci
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude&gt; :load src/Main.hs
+[1 of 1] Compiling Main             ( src\Main.hs, interpreted )
+Ok, modules loaded: Main.
+*Main&gt; main
+&quot;Hello World&quot;
+*Main&gt;
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;h4 id=&#39;compiling_manually_with_ghc&#39;&gt;Compiling manually with GHC&lt;/h4&gt;
+
+&lt;p&gt;In other cases it&amp;#8217;s apprpriate to compile the source. You do this with ghc (notice no i). ghc make SourceName.hs&lt;/p&gt;
+&lt;pre&gt;
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ghc --make Main.hs
+[1 of 1] Compiling Main             ( Main.hs, Main.o )
+Linking Main.exe ...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ls
+Main.exe*  Main.hi  Main.hs  Main.o
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell/src (master)
+$ ./Main.exe
+&quot;Hello World&quot;
+&lt;/pre&gt;
+&lt;h4 id=&#39;compiling_multiple_modules_with_cabal&#39;&gt;Compiling multiple modules with Cabal&lt;/h4&gt;
+
+&lt;p&gt;While the above methods work OK. Haskell projects like in any other language starts to grow eventually and compiling one or more files manually becomes tedious. Instead of doing that from now on all compilation will be done with cabal (afterall, that&amp;#8217;s why we have cabal)&lt;/p&gt;
+&lt;pre&gt;
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ cabal configure
+Resolving dependencies...
+Configuring learn-haskell-0.0.1...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$ cabal build
+Building learn-haskell-0.0.1...
+Preprocessing executable &#39;learn-haskell&#39; for learn-haskell-0.0.1...
+[1 of 1] Compiling Main             ( src\Main.hs, dist\build\learn-haskell\learn-haskell-tmp\Main.o )
+Linking dist\build\learn-haskell\learn-haskell.exe ...
+
+Courtney@ZCOURTS ~/Documents/projects/learn-haskell (master)
+$
+&lt;/pre&gt;
+&lt;p&gt;This created the file dist\build\learn-haskell\learn-haskell.exe which we can run to produce the &amp;#8220;Hello world&amp;#8221; from earlier.&lt;/p&gt;</description>
+                <link>http://haskell.zcourts.com/haskell/beginner/2013/12/18/haskell-hello-world</link>
+                <guid>http://haskell.zcourts.com/haskell/beginner/2013/12/18/haskell-hello-world</guid>
+                <pubDate>2013-12-18T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
+                <title>Haskell: Using and IDE or Text editor</title>
+                <description>&lt;p&gt;Haskell IDE support is somewhat lacking but there are some projects attempting to fill the void. The two I&amp;#8217;d recommend are &lt;a href=&#39;https://github.com/SublimeHaskell/SublimeHaskell&#39;&gt;Sublime Haskell&lt;/a&gt; and &lt;a href=&#39;http://eclipsefp.github.io/&#39;&gt;Eclipse FP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;#8217;t go into any real detail on installing these two. Follow the links above and look at the documentation both projects provide on how to install them. Below is just a quick section taken from each project.&lt;/p&gt;
+
+&lt;h2 id=&#39;sublime_haskell&#39;&gt;Sublime Haskell&lt;/h2&gt;
+
+&lt;p&gt;This is a plugin for the SublimeText editor. If you&amp;#8217;re a fan then it&amp;#8217;s a great addition because you can continue working in a familiar environment. Even if you&amp;#8217;re not Sublime Text is a great text editor so it may be worth a try.&lt;/p&gt;
+
+&lt;h2 id=&#39;requirements&#39;&gt;Requirements&lt;/h2&gt;
+
+&lt;p&gt;Necessary:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ghc and a recent Haskell Platform (&amp;gt;= 2012 should do fine)&lt;/li&gt;
+
+&lt;li&gt;cabal&lt;/li&gt;
+
+&lt;li&gt;Cabal packages: base, bytestring, aeson, haskell-src-exts, haddock&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g. cabal install aeson haskell-src-exts haddock&lt;/p&gt;
+
+&lt;p&gt;Optional, but useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#39;http://hackage.haskell.org/package/ghc-mod&#39;&gt;ghc-mod&lt;/a&gt; (for import and LANGUAGE completions and type inference, &lt;code&gt;cabal install ghc-mod&lt;/code&gt;)&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#39;https://github.com/jaspervdj/stylish-haskell&#39;&gt;stylish-haskell&lt;/a&gt; (for code prettification, &lt;code&gt;cabal install stylish-haskell&lt;/code&gt;)&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#39;http://hackage.haskell.org/package/cabal-dev&#39;&gt;cabal-dev&lt;/a&gt; if you want to use it&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#39;http://hackage.haskell.org/package/haskell-docs&#39;&gt;haskell-docs&lt;/a&gt; (for documentation in &amp;#8216;Symbol info&amp;#8217; command, &lt;code&gt;cabal install haskell-docs&lt;/code&gt;)&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#39;https://github.com/bitc/hdevtools&#39;&gt;hdevtools&lt;/a&gt; (or &lt;a href=&#39;https://github.com/mvoidex/hdevtools&#39;&gt;fork for windows&lt;/a&gt;) (for type inference, &lt;code&gt;cabal install hdevtools&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#39;installation&#39;&gt;Installation&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Get Sublime Text 2: &lt;a href=&#39;http://www.sublimetext.com/&#39;&gt;http://www.sublimetext.com/&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Install the Sublime Package Control package: &lt;a href=&#39;http://wbond.net/sublime_packages/package_control/installation&#39;&gt;http://wbond.net/sublime_packages/package_control/installation&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Use Package Control to install this package (SublimeHaskell)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#39;eclipse_fp&#39;&gt;Eclipse FP&lt;/h2&gt;
+
+&lt;p&gt;This is a plugin for the Eclipse IDE. Unlike Sublime, eclipse is far more than a text editor and as such tends to be more feature rich. This is my favorite of the two (even though I&amp;#8217;m not a big fan of Eclipse for Java, Eclipse FP for Haskell has proven to be a great tool).&lt;/p&gt;
+
+&lt;h3 id=&#39;installation&#39;&gt;Installation&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You&amp;#8217;ll need of course a Java Runtime Environment (JRE), version 6 or above. If you need to download it, go to this page.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Go to the Eclipse download page and get any of the Eclipse bundles. With each of them you will get a different initial set of language support. I recommend going through some Eclipse tutorials and learning about other plug-ins such as EGit and Mylyn.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Uncompress the archive you just downloaded. A eclipse folder will be created.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Inside this folder, you will find an executable called eclipse. Double-click it to start the Eclipse environment (yes, &amp;#8220;installing Eclipse&amp;#8221; means uncompressing it somewhere, even on a portable drive).&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The first time you execute Eclipse, you will be asked about a workspace. A workspace is just the folder where your preferences and configurations are stored (you can have different sets of preferences using different workspaces), and where your projects will be created by default. For trying, you can just use the default choice (usually +your user folder/workspace+).&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Now, let&amp;#8217;s install EclipseFP. First, on the menu, go to Help &amp;gt; Install New Software&amp;#8230;.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;In the Available software window that will appear, click the Add&amp;#8230; button.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;You will be asked about the details of the update site you want to add. An update site is just a place on the internet where your Eclipse installation can find new plug-ins to install. If you use Linux, the concept is very similar to a repository. The name is not important, but the URL must point to http://eclipsefp.sf.net/updates.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The Available software window will show the plug-ins in the EclipseFP repository. Check FP: Haskell support for Eclipse and click Next.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;After clicking Next a few more times (for accepting the licenses), the plug-in will be downloaded and installed.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;You will be asked for an Eclipse restart. After doing it, you can start using EclipseFP by going to Window &amp;gt; Open perspective &amp;gt; Other&amp;#8230; and selecting Haskell.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <link>http://haskell.zcourts.com/installation/2013/12/17/haskell-using-and-ide-or-text-editor</link>
+                <guid>http://haskell.zcourts.com/installation/2013/12/17/haskell-using-and-ide-or-text-editor</guid>
+                <pubDate>2013-12-17T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
+                <title>Haskell: Installation and Setup</title>
+                <description>&lt;p&gt;The first thing to do is install Haskell Platform on your development machine.&lt;/p&gt;
+
+&lt;p&gt;Get the installer from &lt;a href=&#39;http://www.haskell.org/platform/&#39;&gt;http://www.haskell.org/platform/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;#8217;re on linux then use your package manager&amp;#8217;s distribution. Most of them are either up to date or not that far behind.&lt;/p&gt;
+
+&lt;p&gt;For e.g. on Ubuntu you would use&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;sudo apt-get install haskell-platform
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If your platform doesn&amp;#8217;t have a pre-built package, download the source and unpack it to a directory, haskell_build. And execute the following to install it.&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;&lt;span class=&#39;nb&#39;&gt;cd&lt;/span&gt; ./haskell_build
+./configure &lt;span class=&#39;c&#39;&gt;# --prefix # can be added to change the default installation path&lt;/span&gt;
+make &lt;span class=&#39;c&#39;&gt;#-j 8 # if you have a multi-core machine with 4 cores, 8 virtual or adjust accordingly&lt;/span&gt;
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once installed. Check that you have the following programs availailable.&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;ghci
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Should output something similar to:&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;&lt;span class=&#39;nv&#39;&gt;$ &lt;/span&gt;ghci
+Loading package ghc-prim ... linking ... &lt;span class=&#39;k&#39;&gt;done&lt;/span&gt;.
+Loading package integer-gmp ... linking ... &lt;span class=&#39;k&#39;&gt;done&lt;/span&gt;.
+Loading package base ... linking ... &lt;span class=&#39;k&#39;&gt;done&lt;/span&gt;.
+Prelude&amp;gt; :q
+Leaving GHCi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Type :q and press enter to quit GHCi.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;cabal -V &lt;span class=&#39;c&#39;&gt;#uppercase V&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;should output something similar to:&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;bash&#39;&gt;&lt;span class=&#39;nv&#39;&gt;$ &lt;/span&gt;cabal -V
+cabal-install version 1.16.0.2
+using version 1.16.0 of the Cabal library
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>http://haskell.zcourts.com/installation/2013/12/16/haskell-installation-and-setup</link>
+                <guid>http://haskell.zcourts.com/installation/2013/12/16/haskell-installation-and-setup</guid>
+                <pubDate>2013-12-16T00:00:00+00:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
