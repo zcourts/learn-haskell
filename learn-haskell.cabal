@@ -57,4 +57,5 @@ executable learn-haskell
   
   -- Directories containing source files.
   hs-source-dirs:      src
+  other-modules: HelloWorld
   
