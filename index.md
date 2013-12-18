@@ -20,7 +20,7 @@ Unfortunately I didn't do this while I was stuck, the repo came after I could wr
 
 Since I continue to learn new things about Haskell, I'll try to continue adding stuff.
 
-See [code.zcourts.com/learn-haskell](http://code.zcourts.com/learn-haskell).
+See [haskell.zcourts.com](http://haskell.zcourts.com).
 
 Why Haskell
 ===========
