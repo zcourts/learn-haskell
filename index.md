@@ -43,6 +43,12 @@ It is pure, this means a couple of things. Applying a function multiple times wi
 
 Perhaps one of the most awesome things about Haskell is it's type inference. In other typed languages you have to say what a type of a variable is...in Haskell the compiler figures things out for you so you don't have to type it.
 
+#Pages
+
+<ul>
+  {% assign pages_list = site.pages %}
+  {% include JB/pages_list %}
+</ul>
 
 ## Categories
 
