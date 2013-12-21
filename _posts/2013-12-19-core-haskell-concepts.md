@@ -255,7 +255,7 @@ Ok, modules loaded: CoreConcepts.
 
 Case expressions are effectively the same as pattern matching. Take a look:
 
-{% highlight hashkell linenos %}
+{% highlight haskell linenos %}
 caseExpr :: [Int] -> IO ()
 caseExpr xs = case xs of [] -> print "Yeah, we don't like empty lists"
                          x:xss -> print x
