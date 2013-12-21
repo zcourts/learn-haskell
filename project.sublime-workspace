@@ -1,0 +1,258 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_posts/2013-12-19-core-haskell-concepts.md",
+			"settings":
+			{
+				"buffer_size": 14522,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"haskell",
+				"SublimeHaskell: Build"
+			],
+			[
+				"haskll",
+				"SublimeHaskell: Lint"
+			],
+			[
+				"Package Controlin",
+				"Package Control: Install Package"
+			],
+			[
+				"hask",
+				"Set Syntax: Haskell"
+			],
+			[
+				"Hask",
+				"Set Syntax: Haskell"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Courtney/Downloads/roadNet-CA.txt",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/index.md",
+		"/C/Users/Courtney/Downloads/protein.sequences.v9.05.fa",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_config.yml",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-18-haskell-hello-world.md",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-16-haskell-installation-and-setup.md",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-17-haskell-using-and-ide-or-text-editor.md",
+		"/C/Users/Courtney/Downloads/bridge.dump",
+		"/C/Users/Courtney/Downloads/bridge.dump.force",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/.gitignore",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/CNAME",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/README.md",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/terminology.md",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/archive.html",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-08-log-structured-merge-trees-for-the-rest-of-us.md",
+		"/C/Users/Courtney/Downloads/mmap-0.5.9/mmap.cabal",
+		"/C/Users/Courtney/Downloads/mmap-0.5.9/cbits/posix.c",
+		"/C/Users/Courtney/Downloads/http-kafka-bridge_push.log",
+		"/C/Users/Courtney/Documents/projects/research/tail.exe.stackdump",
+		"/C/Users/Courtney/Documents/projects/research/_includes/themes/hooligan/default.html",
+		"/C/Users/Courtney/Documents/projects/research/changelog.md",
+		"/C/Users/Courtney/Documents/projects/research/_config.yml",
+		"/C/Users/Courtney/Documents/projects/research/_theme_packages/hooligan/_includes/themes/hooligan/default.html",
+		"/C/Users/Courtney/Documents/projects/research/atom.xml",
+		"/C/Users/Courtney/Documents/projects/research/archive.html",
+		"/C/Users/Courtney/Documents/projects/research/_layouts/post.html",
+		"/C/Users/Courtney/Documents/projects/research/_layouts/default.html",
+		"/C/Users/Courtney/Documents/projects/kubo/JValue.hs",
+		"/C/Users/Courtney/Documents/projects/kubo/Main.hs",
+		"/C/Users/Courtney/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\Courtney\\Documents\\projects\\research"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"</pre>",
+			"<pre>",
+			"]",
+			"[",
+			"(",
+			")",
+			"*",
+			"mingw32",
+			"The Hooligan Theme"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"{% endhighlight %}",
+			"{% highlight bash %}",
+			"\\]",
+			"\\[",
+			"\\(",
+			"\\)",
+			"\\*"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_posts/2013-12-19-core-haskell-concepts.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14333,
+								14333
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4794.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 189.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

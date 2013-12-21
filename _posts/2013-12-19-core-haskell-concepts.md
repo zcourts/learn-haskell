@@ -253,6 +253,19 @@ Ok, modules loaded: CoreConcepts.
 
 ## Case expressions
 
+Case expressions are effectively the same as pattern matching. Take a look:
+
+{% highlight hashkell linenos %}
+caseExpr :: [Int] -> IO ()
+caseExpr xs = case xs of [] -> print "Yeah, we don't like empty lists"
+                         x:xss -> print x
+{% endhighlight %}
+
+In fact pattern matching is just a slightly better looking way of doing case expressions...
+
+This function also introduces something else that we'll get to when we cover data structures later. But for now just go with [] being a list...it is, really.
+
+So in our "caseExpr" function we've used case identifier of pattern1 -> code pattern2 -> code2
 
 ## Function currying
 
