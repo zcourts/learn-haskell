@@ -63,6 +63,8 @@ class (Eq a) => Animal a where
     grow :: a -> a  
     eat :: a -> Float -> a
     sleep :: a -> Float -> a
+    --default implementation of eat in terms of how much you sleep
+    eat = sleep
     
 instance Animal Person where
 --p{age = age p + 1}
@@ -92,3 +94,8 @@ higherOrderFn fn (x:xs)
 isEven n = even n              
 -- n-reduce isEven to produce
 isEven2 = even
+
+type Name = String
+
+me :: Name -> String
+me a = "My name is " ++ a
