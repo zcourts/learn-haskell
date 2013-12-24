@@ -412,10 +412,49 @@ data Person = Infant{age::Int, height::Float, foodLevel::Float, diaperCount::Int
 
 ## Type classes
 
-A type class is a mechanism for grouping function definitions. These definitions together define the behaviour of this type class' __instances__ (instances are covered next).
+A type class is a mechanism for grouping function definitions. These definitions together define the behaviour of this type class' __instances__ (instances are covered next). A type class can also be thought of as an interface or to some extent an abstract class from an OO language such as Java. Don't get too caught up in the comparison though, they are not the same things. A type class simply means that a definition provides a group of function definitions without their bodies (hence the comparison to Java interfaces). However, you can optionally provide default implementations of the functions (hence why I say it's like abstract classes).
 
+For a type to belong to a type class an implementation of all of the functions must exist for that type.
 
-## Instances
+Enough talk, more code:
+
+{% highlight haskell linenos %}
+class (Eq a) => Animal a where  
+    grow :: a -> a  
+    eat :: a -> Float -> a
+    sleep :: a -> Float -> a
+    --default implementation of eat in terms of how much you sleep
+    eat = sleep
+{% endhighlight %}
+
+Here we use the "class" keyword to create an Animal type class with three functions namely, grow, eat and sleep. By providing a definition of eat, any instance of this typeclass can omit providing their own implementation.
+
+## Instances and Type parameters
+
+Type classes are somewhat useless without instances. I mean, what is the point of an interface that has no concrete implementation? An instance is a specific implementation of a typeclass for a given type.
+
+Give our previous implementation of Person. We;ve got this data but what if we wanted to give it some behaviour?
+Our Animal typeclass just so happens to have some behaviour that applies to a person. So Haskell allows us to associate a set of behaviours with a type, in this case Person. We can do this by creating an instance of Animal for the Person type.
+
+{% highlight haskell linenos %}
+instance Animal Person where
+    grow p = p{age = age p + 1}
+    
+    eat p a = p{height =  newHeight p a}
+        where h = height p
+              newHeight p amount = h + (1 / (amount * h))
+              
+    sleep p t = p{height = newHeight (h p t) t}
+        where h p t= height p * t / 2
+              newHeight height time = height + (1 / (time * height))   
+{% endhighlight %}
+
+This creates an instance of Animal for the type Person. 
+This is where we need to take a step back, we've been using this "a" in the definition of the Animal type class without any explanation of what it is. Well, it's a type parameter. A type parameter is a way of saying the type that goes here doesn't matter as long as it meets whatever constraints I put in place.
+
+When we defined Animal we said "class (Eq a) => Animal a where". There are two important things happening in that line.
+We use a type parameter a, this allows us to define a polymorhpic type class. This means that we the type "a" can be replaced with another type. That's where instances come into the picture.
+The second thing happening in that line is where we use "(Eq a) =>", this allows us to specify what's called a class constraint. This says to the Haskell compiler, "whatever the type of a is, it needs to be a member of the Eq type class". In a way this is inheritance, the definition of Eq immediately becomes applicable to Animal.
 
 ## Modules
 
@@ -427,3 +466,4 @@ module CoreConcepts where
 This would be placed in a file called CoreConcepts.hs - Simples!
 
 # Monads
+
