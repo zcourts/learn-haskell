@@ -284,20 +284,91 @@ So in our "caseExpr" function we've used case identifier of pattern1 -> code pat
 
 # Types
 
+## Data types
+Let's say you wanted to pass around a group of related data. Not just single values such as a single Int,String, etc... Imagine we wanted to represent some information about a person in Haskell. We could begin by identifying what we want to repreent.
+Let's say, age, height and foodLevel (so we can tell if a person is hungry).
+
+You could do this using Haskell's data syntax. As in:
+
+{% highlight haskell linenos %}
+	data Person1 = Person1 Int Float Float
+{% endhighlight %}
+
+The first thing might notice is we have "Person1" twice.
+The first occurance i.e. on the left of the equal sign is known as the "type constructor". The second occurence on the right of the equal sign is called a "data constructor".
+
+A type constructor defines the name under which this data collection is known. The data constructor as the name may imply specifies what is usedto "construct" a Person1. The type and data constructor can have different names, but by covnention the same name is used some times. For e.g. the same collection can be represented as
+
+{% highlight haskell linenos %}
+	data Person1 = Adult Int Float Float
+{% endhighlight %}
+
+To use these you could create a Person1 by either of the following
+
+{% highlight haskell linenos %}
+ let p1 = Person1 1 1.1 0.5
+ -- or using the Adult data constructor
+ let p2 = Adult 1 1.1 0.5
+{% endhighlight %}
+
+Both of the above represents exactly the same data.
+One thing that might come to mind is, how do you know which float is the age and which is the foodLevel? And in reality it's only by convention that you can know which is which. This is a limitation of the syntax. 
+
+### Data types with the Record syntax
+
+However, do not despair, Haskell provides another syntax which allows you to label your data properties. Using that syntax the same structure could be represented as:
+
+{% highlight haskell linenos %}
+	data Person = Person {age::Int, height::Float, foodLevel::Float}
+{% endhighlight %}
+
+You would use it the same way, except now you can be explicit about what is what:
+
+{% highlight haskell linenos %}
+  let p1 = Person{age = 1, height = 1.1, foodLevel = 0.5}
+{% endhighlight %}
+
+One other important disinction is that the compiler automatically generates a function with the same name as your labels. These functions will extract the value of the label with the same name. For example, if we wanted to get age we could do so with the function called age as in:
+
+{% highlight haskell linenos %}
+  let p1 = Person{age = 1, height = 1.1, foodLevel = 0.5}
+  --in some function that accept a person
+  f p = age p
+{% endhighlight %}
+
+Our function f above, accepts a person and returns the person's age using the function age that was automatically generated. This is known as the "record" syntax and in many if not all cases it's the better choice.
+
+### Algebraic data types
+
+There are many cases in the everyday world where we have some abstract collections that often have more specific types. Take humans for example, we can be classified throughout our life cycle as infants, children, teenagers, adults or elderly, for e.g. and there are many cases where this type of classifcation occurrs. To represent this, Haskell has what it calls abstract data types. It's pretty much what we've been doing with the data keyword so far but going a bit further. e.g.:
+
+{% highlight haskell linenos %}
+data Person = Infant{age::Int, height::Float, foodLevel::Float, diaperCount::Int}
+			  | Child {}
+			  | Teenager {}
+			  | Adult {}
+			  | Elderly {}
+{% endhighlight %}
+
+
+### Data structures
+
+### Recursive data structures
+
 ## Type classes
+
+A type class is a mechanism for grouping function definitions. These definitions together define the behaviour of this type class' __instances__ (instances are covered next).
+
 
 ## Instances
 
 ## Modules
 
-## Data types
+A module is a group of related functions, types and type classes. You create a module by creating a file with the same name as the module and using the module where syntax as in:
 
-### Data types with the Record syntax
-
-## Algebraic data types
-
-## Data structures
-
-## Recursive data structures
+{% highlight haskell linenos %}
+module CoreConcepts where
+{% endhighlight %}
+This would be placed in a file called CoreConcepts.hs - Simples!
 
 # Monads
