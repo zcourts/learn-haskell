@@ -53,9 +53,12 @@ executable learn-haskell
   -- other-modules:       
   
   -- Other library packages from which modules are imported.
-  build-depends:       base ==4.6.*
-  
+  build-depends:       
+                       base ==4.6.*,
+                       conduit >=1.0.9 && <1.1
   -- Directories containing source files.
   hs-source-dirs:      src
-  other-modules: HelloWorld
+  other-modules: 
+                 HelloWorld,
+                 ConduitExamples
   

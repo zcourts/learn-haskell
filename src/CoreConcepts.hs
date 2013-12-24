@@ -80,4 +80,15 @@ instance Animal Person where
     sleep p t = p{height = newHeight (h p t) t}
         where h p t= height p * t / 2
               newHeight height time = height + (1 / (time * height))   
-                         
+
+-- usage with a lambda: higherOrderFn (\n -> even n) [1,2,3,4,5,6,7,8] returns [2,4,6,8]
+-- with a normal function: higherOrderFn isEven [1,2,3,4,5,6,7,8] still returns [2,4,6,8]                           
+higherOrderFn :: (Integer -> Bool) -> [Integer] -> [Integer]
+higherOrderFn fn [] = []
+higherOrderFn fn (x:xs) 
+                | fn x = x : higherOrderFn fn xs
+                | otherwise = higherOrderFn fn xs
+
+isEven n = even n              
+-- n-reduce isEven to produce
+isEven2 = even
