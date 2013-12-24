@@ -64,9 +64,53 @@ f 23 "Courtney"
 * Parameters to a function are followed by an equal sign after which the value of each parameter will be bound to each identifier and can then be used.
 
 
-## Higher order functions
+## Higher order functions and & Lambdas
 
 A higher order function is any function which accepts another function as it's parameter. In Haskell you tend to define what things are rather than the steps required to change the state of the world around you. Higher order functions make this a cinch.
+
+{% highlight haskell linenos %}
+
+-- usage with a lambda: higherOrderFn (\n -> even n) [1,2,3,4,5,6,7,8] returns [2,4,6,8]
+-- with a normal function: higherOrderFn isEven [1,2,3,4,5,6,7,8] still returns [2,4,6,8]                           
+higherOrderFn :: (Integer -> Bool) -> [Integer] -> [Integer]
+higherOrderFn fn [] = []
+higherOrderFn fn (x:xs) 
+                | fn x = x : higherOrderFn fn xs
+                | otherwise = higherOrderFn fn xs
+
+isEven n = even n     
+{% endhighlight %}
+
+The function's type "higherOrderFn :: (Int -> Bool) -> [Int] -> [Int]" can be read as 'The function higherOrderFn accepts a function which accepts an integer and returns a boolean, higherOrderFn also accepts a list of integers and returns a list of integers'. Quite a mouth full, but read it again, it makes sense...
+The bit that says "(Int -> Bool)" makes this a higher order function. That's the section that's saying a function can be passed in as a parameter.
+
+Two ways to use this function is included in the code listing above as a comment.
+The first way may be the more natural way by appearance where the function can be invoked with "higherOrderFn isEven [1,2,3,4,5,6,7,8]". This invokes the function passing isEven as the function to be used and a list of integers.
+
+The second and perhaps more interesting syntax is to define is even in place using what's known as the lambda notation, "higherOrderFn (\n -> even n) [1,2,3,4,5,6,7,8]". The "(\n -> even n)" is a lambda function and is typically used when the entire function can be represented very succinctly.
+
+## η-reduction
+
+Is a way to simplify functions in Haskell. There's a whole thing behind it see this [Wikipedia](http://en.wikipedia.org/wiki/Combinatory_logic#.CE.B7-reduction) entry for background on the compinatorial problem/solution.
+
+In short it says that if we have a function that takes a parameter x and applies a function E to x, then this is extensionally equal to the function E itself....blah blah blah. So what does that actually mean for our Haskell functions?
+
+isEven deifned previously was done intentionally to demonstrate this (there's some method behind the madness). Take that definition of isEven. η-reduction simply means we can take this
+
+{% highlight haskell linenos %}
+isEven n = even n              
+{% endhighlight %}
+
+turn it into this
+
+
+{% highlight haskell linenos %}
+isEven = even             
+{% endhighlight %}
+
+because the function effectively just does what even does by extension...
+That's all there is to it.
+
 
 ## Pattern matching and Partial functions
 
@@ -268,8 +312,6 @@ This function also introduces something else that we'll get to when we cover dat
 So in our "caseExpr" function we've used case identifier of pattern1 -> code pattern2 -> code2
 
 ## Function currying
-
-## Lambdas
 
 ## $ makes the world go round
 

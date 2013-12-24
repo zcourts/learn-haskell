@@ -11,7 +11,7 @@
 			"file": "_posts/2013-12-19-core-haskell-concepts.md",
 			"settings":
 			{
-				"buffer_size": 14522,
+				"buffer_size": 18468,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,6 +112,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hashkell",
 			"</pre>",
 			"<pre>",
 			"]",
@@ -128,6 +129,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"haskell",
 			"{% endhighlight %}",
 			"{% highlight bash %}",
 			"\\]",
@@ -154,15 +156,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14522,
+						"buffer_size": 18468,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14333,
-								14333
+								18468,
+								18468
 							]
 						],
 						"settings":
@@ -170,7 +172,7 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4794.0,
+						"translation.y": 6579.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
