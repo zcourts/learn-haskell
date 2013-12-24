@@ -326,11 +326,24 @@ So in our "caseExpr" function we've used case identifier of pattern1 -> code pat
 
 # Types
 
+## Type alias || Type synonyms
+
+Sometimes we want something to be identifiable by a specific name but there's already a type which is a good if not perfect representation of what we want. Haskell allows us to create  an alias to a type such that, this alias is treated as it's own independent type but using the deifnition of another. For example:
+
+{% highlight haskell linenos %}
+  type Name = String
+
+  me :: Name -> String
+  me a = "My name is " ++ a
+{% endhighlight %}
+
+This defines a function "me" that accepts a name and returns a string. Useful if say we wanted to pass Name around and have it treated differently to Strings.
+
 ## Data types
 Let's say you wanted to pass around a group of related data. Not just single values such as a single Int,String, etc... Imagine we wanted to represent some information about a person in Haskell. We could begin by identifying what we want to repreent.
 Let's say, age, height and foodLevel (so we can tell if a person is hungry).
 
-You could do this using Haskell's data syntax. As in:
+You could do this using Haskell's data syntax (also called type construction in various places). As in:
 
 {% highlight haskell linenos %}
 	data Person1 = Person1 Int Float Float
