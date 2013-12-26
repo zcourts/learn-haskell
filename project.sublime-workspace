@@ -7,14 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "_posts/2013-12-19-core-haskell-concepts.md",
-			"settings":
-			{
-				"buffer_size": 18468,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -64,12 +56,15 @@
 	},
 	"file_history":
 	[
+		"/C/Program Files (x86)/Haskell Platform/2013.2.0.0/lib/settings - Copy",
+		"/C/Program Files (x86)/Haskell Platform/2013.2.0.0/lib/settings",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-16-haskell-installation-and-setup.md",
+		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-19-core-haskell-concepts.md",
 		"/C/Users/Courtney/Downloads/roadNet-CA.txt",
 		"/C/Users/Courtney/Documents/projects/learn-haskell/index.md",
 		"/C/Users/Courtney/Downloads/protein.sequences.v9.05.fa",
 		"/C/Users/Courtney/Documents/projects/learn-haskell/_config.yml",
 		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-18-haskell-hello-world.md",
-		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-16-haskell-installation-and-setup.md",
 		"/C/Users/Courtney/Documents/projects/learn-haskell/_posts/2013-12-17-haskell-using-and-ide-or-text-editor.md",
 		"/C/Users/Courtney/Downloads/bridge.dump",
 		"/C/Users/Courtney/Downloads/bridge.dump.force",
@@ -112,6 +107,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"lambda",
 			"hashkell",
 			"</pre>",
 			"<pre>",
@@ -147,36 +143,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "_posts/2013-12-19-core-haskell-concepts.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18468,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18468,
-								18468
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 6579.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
